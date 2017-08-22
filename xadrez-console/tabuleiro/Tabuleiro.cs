@@ -12,5 +12,11 @@
             this.colunas = colunas;
             pecas = new Peca[linhas, colunas];
         }
+
+        // Para controlar quais pecas serao exibidas
+        public Peca peca(int linha, int coluna)
+        {
+            return pecas[linha, coluna];
+        }
     }
 }
