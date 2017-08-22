@@ -13,13 +13,13 @@ namespace xadrez_console
                 for (int j=0; j<tab.colunas; j++)
                 {
                     // verifica se tem peca pra imprimir, se nao tiver, imprime so tracos
-                    if(tab.peca(i,j)==null)
+                    if(tab.Peca(i,j)==null)
                     {
                         Console.Write("- ");
                     }
                     else
                     {
-                        Console.WriteLine(tab.peca(i, j) + " ");
+                        Console.Write(tab.Peca(i, j) + " ");
                     }
                 }
                 Console.WriteLine();

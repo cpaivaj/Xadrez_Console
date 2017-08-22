@@ -14,9 +14,16 @@
         }
 
         // Para controlar quais pecas serao exibidas
-        public Peca peca(int linha, int coluna)
+        public Peca Peca(int linha, int coluna)
         {
             return pecas[linha, coluna];
+        }
+
+        // Coloca uma peca na posicao especificada
+        public void ColocarPeca(Peca p, Posicao pos)
+        {
+            pecas[pos.linha, pos.coluna] = p; // a posicao recebe a peca
+            p.posicao = pos; // atualiza a posicao da peca p
         }
     }
 }
