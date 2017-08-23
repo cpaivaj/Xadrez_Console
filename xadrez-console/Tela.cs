@@ -10,6 +10,7 @@ namespace xadrez_console
             // impressao do tabuleiro com as pecas
             for (int i=0; i<tab.linhas; i++)
             {
+                Console.Write(8 - i + " ");
                 for (int j=0; j<tab.colunas; j++)
                 {
                     // verifica se tem peca pra imprimir, se nao tiver, imprime so tracos
@@ -19,10 +20,28 @@ namespace xadrez_console
                     }
                     else
                     {
-                        Console.Write(tab.Peca(i, j) + " ");
+                        ImprimirPeca(tab.Peca(i, j));
+                        Console.Write(" ");
                     }
                 }
                 Console.WriteLine();
+            }
+
+            Console.WriteLine("  a b c d e f g h");
+        }
+
+        public static void ImprimirPeca(Peca peca)
+        {
+            if (peca.cor == Cor.Branca)
+            {
+                Console.Write(peca);
+            }
+            else
+            {
+                ConsoleColor aux = Console.ForegroundColor; // armazena a cor atual
+                Console.ForegroundColor = ConsoleColor.Yellow; // muda a cor para amarelo
+                Console.Write(peca);  // imprime a peca na cor amarela
+                Console.ForegroundColor = aux; // volta pra cor original
             }
         }
     }
