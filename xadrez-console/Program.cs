@@ -19,9 +19,18 @@ namespace xadrez_console
 
                     // Movimentacao
                     Console.WriteLine();
-                    Console.WriteLine("Origem: "); // qual a peca
+                    Console.Write("Origem: "); // qual a peca
                     Posicao origem = Tela.LerPosicaoXadrez().toPosicao();
-                    Console.WriteLine("Destino: "); // pra onde vai
+
+                    // pega as posicoes possiveis da peca de origem que foi selecionada
+                    bool[,] posicoesPossiveis = partida.tab.Peca(origem).MovimentosPossiveis();
+
+                    // imprime tabuleiro com as posicoes de movimentacao possiveis marcadas
+                    Console.Clear();
+                    Tela.ImprimirTabuleiro(partida.tab, posicoesPossiveis);
+
+                    Console.WriteLine();
+                    Console.Write("Destino: "); // pra onde vai
                     Posicao destino = Tela.LerPosicaoXadrez().toPosicao();
 
                     partida.ExecutaMovimento(origem, destino);

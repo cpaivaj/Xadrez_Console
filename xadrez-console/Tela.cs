@@ -14,21 +14,43 @@ namespace xadrez_console
                 Console.Write(8 - i + " ");
                 for (int j=0; j<tab.colunas; j++)
                 {
-                    // verifica se tem peca pra imprimir, se nao tiver, imprime so tracos
-                    if(tab.Peca(i,j)==null)
-                    {
-                        Console.Write("- ");
-                    }
-                    else
-                    {
-                        ImprimirPeca(tab.Peca(i, j));
-                        Console.Write(" ");
-                    }
+                    ImprimirPeca(tab.Peca(i, j));                
                 }
                 Console.WriteLine();
             }
 
             Console.WriteLine("  a b c d e f g h");
+        }
+
+        // sobrecarga do ImprimirPeca, matriz de posicoesPossiveis
+        public static void ImprimirTabuleiro(Tabuleiro tab, bool[,] posicoesPossiveis)
+        {
+            ConsoleColor fundoOriginal = Console.BackgroundColor;
+            ConsoleColor fundoAlterado = ConsoleColor.DarkGray;
+
+            // impressao do tabuleiro com as pecas
+            for (int i = 0; i < tab.linhas; i++)
+            {
+                Console.Write(8 - i + " ");
+                for (int j = 0; j < tab.colunas; j++)
+                {
+                    // se receber alguma posicao possivel, troca a cor pra marcar
+                    if (posicoesPossiveis[i, j])
+                    {
+                        Console.BackgroundColor = fundoAlterado;
+                    }
+                    else
+                    {
+                        Console.BackgroundColor = fundoOriginal;
+                    }
+                    ImprimirPeca(tab.Peca(i, j));
+                    Console.BackgroundColor = fundoOriginal;
+                }
+                Console.WriteLine();
+            }
+
+            Console.WriteLine("  a b c d e f g h");
+            Console.BackgroundColor = fundoOriginal;
         }
 
         public static PosicaoXadrez LerPosicaoXadrez()
@@ -42,16 +64,24 @@ namespace xadrez_console
 
         public static void ImprimirPeca(Peca peca)
         {
-            if (peca.cor == Cor.Branca)
+            if (peca == null)
             {
-                Console.Write(peca);
+                Console.Write("- ");
             }
             else
             {
-                ConsoleColor aux = Console.ForegroundColor; // armazena a cor atual
-                Console.ForegroundColor = ConsoleColor.Yellow; // muda a cor para amarelo
-                Console.Write(peca);  // imprime a peca na cor amarela
-                Console.ForegroundColor = aux; // volta pra cor original
+                if (peca.cor == Cor.Branca)
+                {
+                    Console.Write(peca);
+                }
+                else
+                {
+                    ConsoleColor aux = Console.ForegroundColor; // armazena a cor atual
+                    Console.ForegroundColor = ConsoleColor.Yellow; // muda a cor para amarelo
+                    Console.Write(peca);  // imprime a peca na cor amarela
+                    Console.ForegroundColor = aux; // volta pra cor original
+                }
+                Console.Write(" ");
             }
         }
     }
