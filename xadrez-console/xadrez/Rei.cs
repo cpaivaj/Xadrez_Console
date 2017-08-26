@@ -27,7 +27,7 @@ namespace xadrez
             Posicao pos = new Posicao(0, 0);
 
             // acima
-            pos.DefinirValores(pos.linha - 1, pos.coluna);
+            pos.DefinirValores(posicao.linha - 1, posicao.coluna);
             // verifica se pode mover e se eh valido
             if (tab.PosicaoValida(pos) && PodeMover(pos))
             {
@@ -35,7 +35,7 @@ namespace xadrez
             }
 
             // diagonal superior direita
-            pos.DefinirValores(pos.linha - 1, pos.coluna + 1);
+            pos.DefinirValores(posicao.linha - 1, posicao.coluna + 1);
             // verifica se pode mover e se eh valido
             if (tab.PosicaoValida(pos) && PodeMover(pos))
             {
@@ -43,7 +43,7 @@ namespace xadrez
             }
 
             // direita
-            pos.DefinirValores(pos.linha, pos.coluna + 1);
+            pos.DefinirValores(posicao.linha, posicao.coluna + 1);
             // verifica se pode mover e se eh valido
             if (tab.PosicaoValida(pos) && PodeMover(pos))
             {
@@ -51,7 +51,7 @@ namespace xadrez
             }
 
             // diagonal direita inferior
-            pos.DefinirValores(pos.linha + 1, pos.coluna + 1);
+            pos.DefinirValores(posicao.linha + 1, posicao.coluna + 1);
             // verifica se pode mover e se eh valido
             if (tab.PosicaoValida(pos) && PodeMover(pos))
             {
@@ -59,7 +59,7 @@ namespace xadrez
             }
 
             // abaixo
-            pos.DefinirValores(pos.linha + 1, pos.coluna);
+            pos.DefinirValores(posicao.linha + 1, posicao.coluna);
             // verifica se pode mover e se eh valido
             if (tab.PosicaoValida(pos) && PodeMover(pos))
             {
@@ -67,7 +67,7 @@ namespace xadrez
             }
 
             // diagonal inferior esquerda
-            pos.DefinirValores(pos.linha + 1, pos.coluna - 1);
+            pos.DefinirValores(posicao.linha + 1, posicao.coluna - 1);
             // verifica se pode mover e se eh valido
             if (tab.PosicaoValida(pos) && PodeMover(pos))
             {
@@ -75,7 +75,7 @@ namespace xadrez
             }
 
             // esquerda
-            pos.DefinirValores(pos.linha, pos.coluna - 1);
+            pos.DefinirValores(posicao.linha, posicao.coluna - 1);
             // verifica se pode mover e se eh valido
             if (tab.PosicaoValida(pos) && PodeMover(pos))
             {
@@ -83,7 +83,7 @@ namespace xadrez
             }
 
             // diagonal esquerda superior
-            pos.DefinirValores(pos.linha - 1, pos.coluna - 1);
+            pos.DefinirValores(posicao.linha - 1, posicao.coluna - 1);
             // verifica se pode mover e se eh valido
             if (tab.PosicaoValida(pos) && PodeMover(pos))
             {
