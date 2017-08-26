@@ -36,6 +36,12 @@
             return false;
         }
 
+        // verificacao se a peca pode ir para o destino escolhido
+        public bool PodeMoverPara(Posicao pos)
+        {
+            return MovimentosPossiveis()[pos.linha, pos.coluna];
+        }
+
         public abstract bool[,] MovimentosPossiveis(); // metodo abstrato (nao possui implementacao nessa classe)
     }
 }
